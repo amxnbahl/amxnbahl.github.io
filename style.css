@@ -6,6 +6,10 @@ html {
     font-family: 'Cascadia Code';
 }
 
+h3 {
+    font-size: 21.5px;
+}
+
 h1 {
     color: rgb(221, 216, 216);
 }
@@ -63,10 +67,6 @@ p {
 
     .pfp {
         height: 140px;
-    }
-
-    h3 {
-        font-size: 21px;
     }
 
     p {
