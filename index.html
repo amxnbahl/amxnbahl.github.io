@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!--Meta Tags-->
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Linking to CSS file-->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <script src="https://kit.fontawesome.com/f470a27bf6.js" crossorigin="anonymous"></script>
+
+    <!--Jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"
+        integrity="sha512-n/4gHW3atM3QqRcbCn6ewmpxcLAHGaDjpEBu4xZd47N0W2oQ+6q7oc3PXstrJYXcbNU1OHdQ1T7pAP+gi5Yu8g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!--Tippy.js-->
+    <script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+    <script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+
+    <!--Title of this Website-->
+    <title>Portfolio</title>
+
+</head>
+
+<body>
+
+    <div class="user">
+        <img class="pfp" src="https://cdn.discordapp.com/avatars/852203653162205244/ef6dfec9f592eea2877eddf86a6ce68a"
+            alt="">
+
+        <img class="status" src="" alt="">
+
+        <h2 class="name"></h2>
+
+        <h3 class="about-me">About Me: </h3>
+        <p>A teenager interested in software development and computer science. </p>
+    </div>
+
+    <div class="socials">
+        <a href="#" target="_blank"><i class="bi bi-github"></i>&nbsp;Github</a>
+        <a href="#" target="_blank"><i class="bi bi-discord"></i>&nbsp;Discord</a>
+        <a href="#" target="_blank"><i class="fa-brands fa-hackerrank"></i>&nbsp;HackerRank</a>
+    </div>
+
+    <script>
+
+        async function getUserStatus() {
+
+            const url = "https://api.lanyard.rest/v1/users/852203653162205244";
+
+            const response = await fetch(url);
+
+            const json = await response.json();
+
+            //Pfp
+            let pfp_url = "https://cdn.discordapp.com/avatars/852203653162205244/" + json.data.discord_user.avatar + ".png";
+
+            let pfp = document.querySelector('.pfp');
+
+            pfp.setAttribute('src', pfp_url);
+
+            //Status
+            let status_img = "/images/" + json.data.discord_status + ".png";
+
+            let status = document.querySelector('.status');
+
+            status.setAttribute("src", status_img);
+
+            //tippy.js
+
+            const instance = tippy(document.querySelector('.status'));
+
+            if (json.data.discord_status == 'dnd') {
+                instance.setContent('Do Not Disturb');
+            }
+
+            else if (json.data.discord_status == 'online') {
+                instance.setContent('Online');
+            }
+
+            else if (json.data.discord_status == 'offline') {
+                instance.setContent('Offline');
+            }
+
+            else {
+                instance.setContent('Idle');
+            }
+
+        }
+
+        getUserStatus();
+
+        async function showUserDetails() {
+
+            const url = "https://api.lanyard.rest/v1/users/852203653162205244";
+
+            const response = await fetch(url);
+
+            const json = await response.json();
+
+            let discord_username = json.data.discord_user.username;
+
+            let discord_discriminator = json.data.discord_user.discriminator;
+
+            $(".name").text(discord_username+" #"+discord_discriminator);
+
+        }
+
+        showUserDetails();
+
+    </script>
+
+</body>
+
+</html>
