@@ -34,7 +34,7 @@ p {
 
 .pfp {
     border-radius: 50%;
-    height: 160px; /*140*/
+    height: 156px; /*140*/
 }
 
 .user {
@@ -43,7 +43,7 @@ p {
 }
 
 .status {
-    margin-left: -45px;
+    margin-left: -48px;
     border: 6px solid rgb(36, 37, 39);
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
