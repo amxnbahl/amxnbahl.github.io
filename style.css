@@ -28,6 +28,7 @@ h1 {
     margin-right: 5px;
     /* padding-bottom: 2px; */
     /* border-bottom: 1px solid royalblue; */
+    font-size: 17.8px;
     text-decoration: none;
     padding: 10px 20px;
     background-color: rgb(250, 250, 79);
@@ -77,14 +78,18 @@ p {
     p {
         padding-right: 43px;
         padding-left: 43px;
-        font-size: 18px;
+        font-size: 18.8px;
+    }
+
+    a i {
+        margin-right: 19.6px;
     }
 
     .socials a {
         display: block;
-        width: 200px;
-        margin-bottom: 9px;
-        font-size: 19px;
+        width: 232px;
+        margin-bottom: 16px;
+        font-size: 19.3px;
         text-align: left;
         margin-left: auto;
         margin-right: auto;
