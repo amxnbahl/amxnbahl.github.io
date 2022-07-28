@@ -72,6 +72,11 @@ p {
     color: rgb(221, 216, 216);
 }
 
+.about-me-para {
+    padding-left: 43px;
+    padding-right: 43px;
+}
+
 @media only screen and (max-width: 600px) {
 
     .pfp {
@@ -80,8 +85,6 @@ p {
 
     p {
         font-size: 18.8px;
-        padding-left: 43px;
-        padding-right: 43px;
     }
 
     a i {
